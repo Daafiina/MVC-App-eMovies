@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using eMovies.Data;
 using eMovies.Models;
+using eMovies.Data.Services;
 
 namespace eMovies.Controllers
 {
@@ -14,15 +15,17 @@ namespace eMovies.Controllers
     {
         private readonly AppDbContext _context;
 
-        public ActorsController(AppDbContext context)
+        private readonly IActorsService _service;
+
+        public ActorsController(IActorsService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        // GET: Actors
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Actors.ToListAsync());
+            var data = await _service.GetAll();
+            return View(data);
         }
 
         /*// GET: Actors/Details/5
