@@ -1,6 +1,6 @@
 ﻿namespace eMovies.Data
 {
-    public class MovieCategory
+    public class AppDbContext : DbContext
     {
     }
 }
