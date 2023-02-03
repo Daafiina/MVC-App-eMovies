@@ -33,6 +33,7 @@ namespace eMovies
             services.AddScoped<IActorsService,ActorsService>();
 
             services.AddControllersWithViews();
+            services.AddScoped<ICinemasService, CinemasService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
