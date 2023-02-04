@@ -31,9 +31,9 @@ namespace eMovies
 
             //Services configuration
             services.AddScoped<IActorsService,ActorsService>();
-
-            services.AddControllersWithViews();
+            services.AddScoped<IProducersService, ProducersService>();
             services.AddScoped<ICinemasService, CinemasService>();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
