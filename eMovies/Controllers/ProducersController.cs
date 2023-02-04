@@ -20,11 +20,19 @@ namespace eMovies.Controllers
             _service = service;
         }
 
-        // GET: Producers
+        
         public async Task<IActionResult> Index()
         {
             var allProducers = await _service.GetAllAsync();
             return View(allProducers);
+        }
+
+        // GET: Producers/details/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var producerDetails = await _service.GetByIdAsync(id);
+            if (producerDetails == null) return View("Not Found");
+            return View(producerDetails);
         }
     }
 }
