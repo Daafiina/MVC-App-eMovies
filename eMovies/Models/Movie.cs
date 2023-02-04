@@ -3,10 +3,11 @@ using System;
 using eMovies.Data.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using eMovies.Data.Base;
 
 namespace eMovies.Models
 {
-    public class Movie
+    public class Movie:IEntityBase
     {
         [Key]
         public int Id { get; set; }
