@@ -13,8 +13,7 @@ namespace eMovies.Controllers
 {
     public class ActorsController : Controller
     {
-        private readonly AppDbContext _context;
-
+        
         private readonly IActorsService _service;
 
         public ActorsController(IActorsService service)
