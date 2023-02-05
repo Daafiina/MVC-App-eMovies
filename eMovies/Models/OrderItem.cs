@@ -18,7 +18,7 @@ namespace eMovies.Models
 
         [ForeignKey("MovieId")]
 
-        public virtual Movie Movie { get; set; }
+        public Movie Movie { get; set; }
 
         public int OrderId { get; set; }
 
