@@ -9,10 +9,11 @@ using eMovies.Data;
 using eMovies.Models;
 using eMovies.Data.Services;
 using Microsoft.AspNetCore.Authorization;
+using eMovies.Data.Static;
 
 namespace eMovies.Controllers
 {
-    [Authorize]
+    [Authorize (Roles = UserRoles.Admin)]
     public class ProducersController : Controller
     {
         private readonly IProducersService _service;

@@ -1,5 +1,6 @@
 ﻿using eMovies.Data.Cart;
 using eMovies.Data.Services;
+using eMovies.Data.Static;
 using eMovies.Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
