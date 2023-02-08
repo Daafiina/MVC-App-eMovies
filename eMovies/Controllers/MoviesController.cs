@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using eMovies.Data;
 using eMovies.Models;
 using eMovies.Data.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eMovies.Controllers
 {
+    [Authorize]
     public class MoviesController : Controller
     {
         private readonly IMoviesService _service;
@@ -19,6 +21,8 @@ namespace eMovies.Controllers
         {
             _service = service;
         }
+
+        [AllowAnonymous]
 
         // GET: Movies
         public async Task<IActionResult> Index()
@@ -39,7 +43,9 @@ namespace eMovies.Controllers
 
             return View("Index", allMovies);
         }
+
         // GET: Movies/Details/5
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var movieDetail = await _service.GetMovieByIdAsync(id);

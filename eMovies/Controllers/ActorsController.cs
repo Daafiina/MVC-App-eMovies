@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using eMovies.Data;
 using eMovies.Models;
 using eMovies.Data.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eMovies.Controllers
 {
+    [Authorize]
     public class ActorsController : Controller
     {
         
@@ -20,7 +22,7 @@ namespace eMovies.Controllers
         {
             _service = service;
         }
-
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var data = await _service.GetAllAsync();
@@ -45,6 +47,7 @@ namespace eMovies.Controllers
         }
 
         //Get: Actors/Details/1
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var actorDetails = await _service.GetByIdAsync(id);

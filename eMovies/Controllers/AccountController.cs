@@ -4,6 +4,7 @@ using eMovies.Data.ViewModels;
 using eMovies.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace eMovies.Controllers
@@ -21,6 +22,13 @@ namespace eMovies.Controllers
             _context = context;
 
         }
+
+        public async Task<IActionResult> Users()
+        {
+            var users = await _context.Users.ToListAsync();
+            return View(users);
+        }
+
         public IActionResult Login()=> View(new LoginVM());
 
         [HttpPost]
