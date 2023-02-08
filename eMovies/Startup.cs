@@ -76,6 +76,9 @@ namespace eMovies
 
             //Seed database
             AppDbInitializer.Seed(app);
+            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
+
         }
+       
     }
 }
